@@ -35,3 +35,21 @@ docker exec -it openvpn-as /usr/local/openvpn_as/scripts/sacli --user admin --ke
 ```
 docker exec -it openvpn-as /usr/local/openvpn_as/scripts/sacli start
 ```
+
+
+خطوات لتعيين صلاحيات "superuser":
+افتح جلسة docker exec مع الحاوية الخاصة بك:
+
+```
+docker exec -it openvpn-as bash
+```
+قم بتشغيل السكربت sacli لضبط الصلاحيات:
+
+```
+/usr/local/openvpn_as/scripts/sacli --user admin --key "prop_superuser" --value "true" UserPropPut
+```
+تحقق مرة أخرى من الإعدادات:
+
+```
+/usr/local/openvpn_as/scripts/sacli --user admin UserPropGet
+```
