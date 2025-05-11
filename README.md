@@ -12,3 +12,7 @@ docker run -d \
   -v /opt/openvpn-as-data:/config \
   openvpn/openvpn-as
 ```
+get password
+```
+docker exec -it openvpn-as cat /usr/local/openvpn_as/init.log
+```
