@@ -22,3 +22,16 @@ docker exec -it openvpn-as cat /usr/local/openvpn_as/init.log
 docker exec -it openvpn-as /usr/local/openvpn_as/scripts/sacli --user admin --new_pass MySecurePass123 SetLocalPassword
 ```
 ✏️ غيّر MySecurePass123 بكلمة المرور التي تريدها.
+
+
+الحل: تفعيل صلاحية "Superuser" للمستخدم admin
+نفّذ الأمر التالي:
+
+```
+docker exec -it openvpn-as /usr/local/openvpn_as/scripts/sacli --user admin --key "type" --value "admin" UserPropPut
+```
+ثم أعد تشغيل خدمات OpenVPN Access Server لتأكيد التحديث:
+
+```
+docker exec -it openvpn-as /usr/local/openvpn_as/scripts/sacli start
+```
