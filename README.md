@@ -16,3 +16,9 @@ get password
 ```
 docker exec -it openvpn-as cat /usr/local/openvpn_as/init.log
 ```
+. تعيين كلمة مرور للمستخدم admin (أو أي مستخدم أنشأته):
+```
+
+docker exec -it openvpn-as /usr/local/openvpn_as/scripts/sacli --user admin --new_pass MySecurePass123 SetLocalPassword
+```
+✏️ غيّر MySecurePass123 بكلمة المرور التي تريدها.
